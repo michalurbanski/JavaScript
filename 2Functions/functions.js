@@ -66,3 +66,16 @@ function sum(){
 }
 
 console.log("Generic sum function: " + sum(1, 2, 3, 4)); // 10
+
+// Function overloading - there is no such possibility in JavaScript 
+// But a workaround can be used
+function say(message){
+    if(typeof message === "undefined"){
+        message = "Default message";
+    }
+    
+    console.log(message); 
+}
+
+say("Hello"); 
+say(); // prints default message
