@@ -85,10 +85,10 @@ function reflect(value){
 
 console.log("Typeof function is: " + typeof reflect); // function 
 
-// For all reference types other than functions, typeof returns object
+// For all reference types other than functions, typeof returns Object
 // This is because every reference type inherits from Object
 var arr = []; 
-console.log("Typeof array is: " + typeof arr); 
+console.log("Typeof array is: " + typeof arr); // this returns Object
 
 // To check if array is typeof array following method can be used
 console.log(arr instanceof Array); // true
