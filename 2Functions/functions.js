@@ -79,3 +79,14 @@ function say(message){
 
 say("Hello"); 
 say(); // prints default message
+
+// Functions in objects
+var person = {
+    name: "michal", 
+    say: function(){ // Functions as property value is called 'method'
+        console.log(this.name); // 'this' keyword represents calling object (in this case person object)
+                                // But if needed value of 'this' can be changed -> call, bind, apply methods
+    }
+};
+
+person.say(); 
