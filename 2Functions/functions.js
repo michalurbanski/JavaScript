@@ -49,7 +49,7 @@ reflect = function(){
 }
 
 console.log(reflect(1, "Hi")) // prints 1
-console.log("Reflect function - without parameters - length (arity): " + reflect.length);
+console.log("Reflect function - without parameters - length (arity): " + reflect.length); // prints 0, as there are no named characters
 
 // Sum any number of arguments 
 function sum(){
