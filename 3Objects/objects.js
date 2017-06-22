@@ -68,3 +68,14 @@ console.log("Own 'say': " +  person3.hasOwnProperty("say"));
 console.log("Own toString(): " + person3.hasOwnProperty("toString"));
 console.log("Prototype property toString(): " + ("toString" in person3));
 
+// Deleting properties
+// Setting property to null is not sufficient 
+
+person3.say = null; 
+console.log("Is 'say' still defined: " + (person3.hasOwnProperty("say"))); 
+
+var isDeleted = delete person3.say; // returns true if successful 
+console.log("Is deleted: " + isDeleted); 
+console.log("Is still defined: " + (person3.hasOwnProperty("say")));
+
+
