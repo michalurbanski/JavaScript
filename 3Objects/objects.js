@@ -97,6 +97,29 @@ for(var property in myObject){
 var myObjectPropertiesArray = Object.keys(myObject); // properties can be stored for a later use
 console.log(myObjectPropertiesArray); 
 
-// Many prototype properties are not enumerable
+// Many prototype properties are not enumerable by default
 console.log("length" in myObjectPropertiesArray); // returns true!, and this array has only 2 values
 console.log("Is length enumerable: " +  myObjectPropertiesArray.propertyIsEnumerable("length")); 
+
+// Types of properties
+// - Data properties (these are created by default)
+// - Accessor properties (don't contain a value but instead define functions - getter and setter)
+
+// Accessor property using an object literal
+var person = {
+    // _ common convention to indicate that property is considered private, although it isn't
+    _name: "Michal", // notice comma (these are just properties)
+
+    get name(){
+        console.log("Custom operation when reading value"); 
+        return this._name; 
+    },
+    set name(value){
+        console.log("Custom operation when setting value: " + value);
+        this._name = value;
+    }
+};
+
+console.log(person.name)
+person.name = "John"; 
+
