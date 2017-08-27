@@ -5,7 +5,8 @@
 // Null 
 // Undefined
 
-// A variable holding a primitive directly contains the primitive value (rather than a pointer to an object)
+// A variable holding a primitive directly contains the primitive value 
+// (rather than a pointer to an object)
 var color1 = "red"; 
 var color2 = color1; 
 
@@ -23,7 +24,8 @@ console.log(typeof undefined); // undefined
 console.log("But typeof null is: " + typeof null); // object 
 
 console.log("Reference types:");
-// By convention, constructors begin with a capital letter to distinguish them from nonconstructor functions
+// By convention, constructors begin with a capital letter to distinguish them 
+// from nonconstructor functions
 var object = new Object(); 
 
 // Custom property can be added to the object dynamically
@@ -101,7 +103,7 @@ console.log("text" instanceof String); // false
 // Primitive wrapper types - does not correctly show primitive type 
 var found = new Boolean(false); 
 console.log(found); 
-console.log(typeof found); // Show Object, not boolean
+console.log(typeof found); // Shows Object, not boolean
 
 // And objects are always considered true inside a conditional statements:
 if(found){

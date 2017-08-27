@@ -1,18 +1,21 @@
 // Functions are actually objects in JavaScript - which makes them first-class functions.
-// What distinguishes it from any other object is the presence of an internal property name [[Call]].
+// What distinguishes them from any other object 
+// is the presence of an internal property name [[Call]].
 
 // Two literal forms of functions: 
 // - Function declaration 
 // - Function expression
 
 // Function declaration 
-// Function declarations are hoisted to the top of the context - such function be defined after it is used in code. 
+// Function declarations are hoisted to the top of the context - 
+// such function be defined after it is used in code. 
 function add(num1, num2){
     return num1 + num2; 
 }
 
 // Function expression - anonymous function
-// Function expression are not hoisted - they can be used in code only after variable holding function is created. 
+// Function expression are not hoisted - they can be used in code only after 
+// variable holding function is created. 
 var addFunction = function(num1, num2){
     return num1 + num2; 
 }
@@ -42,7 +45,7 @@ function reflect(value){
 console.log("Function arity is: " + reflect.length); // function is object so it can have properties 
                                                      // 1 argument is expected, so length will return 1
 
-console.log(reflect(1, "Hi")); // prints 1
+console.log(reflect(1, "Hi")); // prints 1, additional parameter is skipped
 
 reflect = function(){
     return arguments[0]; // access arguments

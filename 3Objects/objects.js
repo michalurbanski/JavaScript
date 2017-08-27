@@ -65,7 +65,7 @@ console.log("Does 'say' method exist: " + ("say" in person3));
 // If only own property should be checked than hasOwnProperty() method should be used. 
 
 console.log("Own 'say': " +  person3.hasOwnProperty("say"));
-console.log("Own toString(): " + person3.hasOwnProperty("toString"));
+console.log("Own toString(): " + person3.hasOwnProperty("toString")); // false, because it's a prototype property
 console.log("Prototype property toString(): " + ("toString" in person3));
 
 // Deleting properties
