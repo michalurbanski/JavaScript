@@ -78,4 +78,25 @@ var isDeleted = delete person3.say; // returns true if successful
 console.log("Is deleted: " + isDeleted); 
 console.log("Is still defined: " + (person3.hasOwnProperty("say")));
 
+// Enumeration 
+// By default all properties added to an object are enumerable
 
+var myObject = {
+    id: 5, 
+    name: "test"
+};
+
+console.log("Printing object properties"); 
+// for-in loop enumerates also prototype properties
+for(var property in myObject){ 
+    console.log("Property: " + property);
+    console.log("Value: " + myObject[property]); // primary use case for bracket notation
+}
+
+// Object.keys(object) returns only own properties
+var myObjectPropertiesArray = Object.keys(myObject); // properties can be stored for a later use
+console.log(myObjectPropertiesArray); 
+
+// Many prototype properties are not enumerable
+console.log("length" in myObjectPropertiesArray); // returns true!, and this array has only 2 values
+console.log("Is length enumerable: " +  myObjectPropertiesArray.propertyIsEnumerable("length")); 
