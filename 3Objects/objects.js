@@ -101,6 +101,11 @@ console.log(myObjectPropertiesArray);
 console.log("length" in myObjectPropertiesArray); // returns true!, and this array has only 2 values
 console.log("Is length enumerable: " +  myObjectPropertiesArray.propertyIsEnumerable("length")); 
 
+// In ECMAScript 5 there's also possibility to get all properties - also non-enumerable
+var f = function(){};
+var allProperties = Object.getOwnPropertyNames(f); // Works for function
+console.log("All properties: " + allProperties); 
+
 // Types of properties
 // - Data properties (these are created by default)
 // - Accessor properties (don't contain a value but instead define functions - getter and setter)
@@ -120,6 +125,7 @@ var person = {
     }
 };
 
+console.log("\n" + "Accessor properties:");
 console.log(person.name)
 person.name = "John"; 
 
