@@ -67,11 +67,11 @@ console.log(person.toString());
 console.log(person.constructor === Person); // false
 // A way to solve is to define prototype with "constructor: Person" property
 
-// Add properties dynamically to prototype 
+// Add properties dynamically to prototype
 Person.prototype.anotherAction = function(){
     console.log("testing..."); 
 }
 
-person.anotherAction();
+person.anotherAction(); // already created object gains capability to call new prototype function
 
-// In this way also built-in objects can be extended
+// In this way also built-in objects can be extended - but it's not especially recommended, as it might lead to a confusion
