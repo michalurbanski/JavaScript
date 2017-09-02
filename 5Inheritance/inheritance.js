@@ -127,4 +127,42 @@ console.log(employee instanceof Employee);
 console.log(employee instanceof Person);
 console.log(employee instanceof Object);
 
+// ----------------
+// Constructor stealing: 
+console.log("\nConstructor stealing:");
 
+// Redefine employee
+function Employee(id, name){
+    // constructor stealing - allows to avoid redefining properties from a constructor 
+    // like this.name = id
+    Person.call(this, id); // id will be used as this.name (constructor is being called with a different 'this' function)
+}
+
+Employee.prototype = Object.create(Person.prototype, { // pseudoclassical inheritance
+    constructor: {
+        configurable: true, 
+        enumerable: true, 
+        value: Employee,
+        writable: true
+    }
+});
+
+Employee.prototype.toString = function(){
+    return "Employee: " + this.name;
+}
+
+employee = new Employee(1);
+console.log(employee.name); // 1
+console.log(employee.id); // undefined - as it was not initialized
+console.log(employee.toString()); // overriden toString function in Employee.prototype
+
+// -------------------------
+// Calling supertype methods
+
+console.log("\nCalling supertype's toString() method:");
+Employee.prototype.toString = function(){
+    var personText = Person.prototype.toString.call(this); 
+    return personText + " called from employee toString()"; 
+};
+
+console.log(employee.toString());
