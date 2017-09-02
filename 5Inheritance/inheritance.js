@@ -57,3 +57,74 @@ console.log("Enumeration when custom property is added: ");
 for(var prop in my){ // but when run using 'node' this shows only own properties
     console.log(prop);
 }
+
+// ------------------
+// Object inheritance
+
+console.log("\nObject inheritance:");
+var person = { 
+    firstName: "Mike", 
+    write: function(){
+        console.log(this.firstName); 
+    }
+};
+
+var employee = Object.create(person, { // first argument is used as prototype for the object
+    firstName: {
+        configurable: true, 
+        enumerable: true, 
+        value: "John", 
+        writable: true
+    }
+});
+
+person.write(); 
+employee.write();
+console.log(person.isPrototypeOf(employee)); // true
+console.log(person.hasOwnProperty("write")); // true
+console.log(employee.hasOwnProperty("write")); // false
+
+// -----------------------
+// Constructor inheritance
+console.log("\nConstructor inheritance:");
+
+function Person(name){
+    this.name = name;
+}
+
+Person.prototype.write = function(){
+    console.log(this.name);
+}
+
+Person.prototype.toString = function(){
+    return "[" + this.name + "]";
+}
+
+function Employee(id, name){
+    this.id = id;
+    this.name = name;
+}
+
+Employee.prototype = new Person(); // inherits from person
+// employee prototype is Employee.prototype, and Employee.prototype prototype is Person.prototype
+
+Employee.prototype.constructor = Employee; // constructor needs to be restored after setting prototype
+Employee.prototype.toString = function(){
+    return "[id:" + this.id + ", name: " + this.name + "]";
+}
+
+var person = new Person("Mike"); 
+person.write();
+console.log(person.toString()); // NOTE: when console.log() is called, toString() is not automatically called!
+
+var employee = new Employee(1, "John");
+employee.write();
+console.log(employee.toString());
+
+// Interesting ones - all are true:
+// That's because instanceof uses prototype chain to determine object's type
+console.log(employee instanceof Employee); 
+console.log(employee instanceof Person);
+console.log(employee instanceof Object);
+
+
