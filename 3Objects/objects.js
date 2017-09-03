@@ -93,7 +93,7 @@ for(var property in myObject){
     console.log("Value: " + myObject[property]); // primary use case for bracket notation
 }
 
-// Object.keys(object) returns only own properties
+// Object.keys(object) returns only own properties and only enumerable properties
 var myObjectPropertiesArray = Object.keys(myObject); // properties can be stored for a later use
 console.log(myObjectPropertiesArray); 
 
